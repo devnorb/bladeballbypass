@@ -1,3 +1,44 @@
--- norb was here
--- istg script keeps bugging (it's fixed now)
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9)local v10={};for v12=1, #v8 do v6(v10,v0(v4(v1(v2(v8,v12,v12 + 1 )),v1(v2(v9,1 + (v12% #v9) ,1 + (v12% #v9) + 1 )))%256 ));end return v5(v10);end pcall(function()while task.wait(0.5 -0 ) do local v13=0 -0 ;local v14;while true do if (v13==(1065 -(68 + 997))) then v14=0;while true do if (v14==0) then for v15,v16 in game.ReplicatedStorage.Security:GetChildren() do v16:Destroy();end game.ReplicatedStorage.Security:Destroy();break;end end break;end end end end);task.spawn(function()repeat task.wait(1270.5 -(226 + 1044) );until game:IsLoaded() task.wait(4 -3 );warn(v7("\215\214\216\46\166\180\193\24\145\194\213\49\239\184\207\27\208\215\155\46\255\168\135\83\145\205\212\55\228\132\135\2\145\193\215\36\226\190\135\28\208\207\215\101\226\190\209\13\145\193\222\49\242\190\213\94\223\204\207\101\245\190\194\94\197\203\210\54\166\225\153","\126\177\163\187\69\134\219\167"));local v11=loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Jailbreak/Notification/Source.lua"))();v11.new({[v7("\23\200\50\209","\156\67\173\74\165")]="anticheat should be bypassed :p - norb_\nwarning: game might freeze",[v7("\16\162\91\23\168\47\73\58","\38\84\215\41\118\220\70")]=120 -(32 + 85) });game.VirtualInputManager:SendKeyEvent(true,Enum.KeyCode.Q,false,game);task.wait(0.1 + 0 );game.VirtualInputManager:SendKeyEvent(false,Enum.KeyCode.Q,false,game);end);
+
+getgenv().getcallingscript =
+    getcallingscript or
+    newcclosure(
+        function(level)
+            level = level and level + 1 or 1
+            local func = setfenv(level, getfenv(level))
+            return getfenv(func).script
+        end
+    )
+
+pcall(function()
+    while task.wait(0.5) do
+        for i, v in game.ReplicatedStorage.Security:GetChildren() do
+            v:Destroy()
+        end
+        game.ReplicatedStorage.Security:Destroy()
+    end
+end)
+
+task.spawn(function()
+    repeat
+        task.wait(0.5)
+    until game:IsLoaded()
+    task.wait(1)
+    warn("fuck off anticheat kys - norb_ | blade ball devs better not see this :>")
+    local notif = loadstring(game:HttpGet(
+        "https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Jailbreak/Notification/Source.lua"))()
+    notif.new({
+        Text = "anticheat should be bypassed :p - norb_\nwarning: game might freeze",
+        Duration = 3
+    })
+    game.VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+    task.wait(0.1)
+    game.VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+end)
+
+local Old
+Old = hookfunction(debug.setmetatable or setmetatable, function(...)
+    if tostring(getcallingscript()):find("BAC_") then
+        return
+    end
+    return Old(...)
+end)
