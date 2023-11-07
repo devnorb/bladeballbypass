@@ -1,3 +1,5 @@
+warn(" USE THE SOURCE CODE LOADSTRING GETS DETECTED I THINK - norb")
+--[[
 repeat
     task.wait(0.5)
 until game:IsLoaded()
@@ -14,3 +16,4 @@ pcall(function()
         end
     end
 end)
+]]--
