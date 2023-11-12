@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/devnorb/bladeballbypass/main/FINALE.lua"))()
+warn("updated dm norb for it")
